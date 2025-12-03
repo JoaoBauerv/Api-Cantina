@@ -25,4 +25,9 @@ class CardapioReceita extends Model
         return $this->belongsTo(Cardapio::class, 'id_cardapio', 'id_cardapio');
     }
 
+    public function receita()
+    {
+        return $this->hasMany(Receita::class, 'id_receita', 'id_receita');
+    }
+
 }

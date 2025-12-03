@@ -14,7 +14,7 @@ class CardapioController extends Controller
     public function index() : JsonResponse
     {
             
-        $cardapios = Cardapio::with('cardapioReceitas') 
+        $cardapios = Cardapio::with('cardapioReceitas.receita:id_receita,nm_receita') 
                 ->orderBy('id_cardapio', 'DESC')
                 ->get();
 
