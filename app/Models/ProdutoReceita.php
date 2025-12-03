@@ -24,4 +24,8 @@ class ProdutoReceita extends Model
     {
         return $this->belongsTo(Receita::class, 'id_receita', 'id_receita');
     }
+    public function produto()
+    {
+        return $this->belongsTo(Produto::class, 'id_produto', 'id_produto');
+    }
 }

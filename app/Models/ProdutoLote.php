@@ -25,4 +25,9 @@ class ProdutoLote extends Model
     {
         return $this->belongsTo(Lote::class, 'id_lote', 'id_lote');
     }
+
+    public function produto()
+    {
+        return $this->belongsTo(Produto::class, 'id_produto', 'id_produto');
+    }
 }

@@ -16,5 +16,12 @@ class Produto extends Model
         'qt_estoque',
         
     ];
-
+    public function produtosLote()
+    {
+        return $this->hasMany(ProdutoLote::class, 'id_produto', 'id_produto');
+    }
+    public function produtosReceita()
+    {
+        return $this->hasMany(ProdutoReceita::class, 'id_produto', 'id_produto');
+    }
 }

@@ -15,7 +15,7 @@ class ReceitaController extends Controller
     public function index() : JsonResponse
     {
             
-        $receitas = Receita::with('produtosReceita')
+        $receitas = Receita::with('produtosReceita.produto:id_produto,nm_produto')
                             ->orderBy('id_receita', 'DESC')
                             ->get();
 

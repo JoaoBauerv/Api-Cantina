@@ -14,7 +14,7 @@ class LoteController extends Controller
     public function index() : JsonResponse
     {
             
-        $lotes = Lote::with('produtosLote') 
+        $lotes = Lote::with('produtosLote.produto:id_produto,nm_produto') 
                 ->orderBy('id_lote', 'DESC')
                 ->get();
 
