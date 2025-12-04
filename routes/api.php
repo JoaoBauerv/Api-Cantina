@@ -36,6 +36,9 @@ Route::group(['middleware'=>['auth:sanctum']], function(){ // baarer token {{tok
     Route::post('/produtos', [ProdutoController::class, 'store']);// POST | {{base_url}}/produtos/1 | {"nm_produto": "","id_medida": ""}
     Route::put('/produtos/{produto}', [ProdutoController::class, 'update']);// PUT | {{base_url}}/produtos/1 | {"nm_medida": "", "id_medida": ""}
     Route::delete('/produtos/{produto}', [ProdutoController::class, 'destroy']);// DELETE | {{base_url}}/produtos/1 
+    
+    Route::get('/relatorios/produtos/top-menor-estoque', [ProdutoController::class, 'topMenorEstoque']);
+
 
     //Rotas Lotes
     Route::get('/lotes', [LoteController::class, 'index']); // GET | {{base_url}}/lotes

@@ -14,7 +14,7 @@ class ProdutoController extends Controller
     public function index() : JsonResponse
     {
             
-        $produtos = Produto::orderBy('id_produto', 'DESC')->get();
+        $produtos = Produto::orderBy('nm_produto', 'ASC')->get();
 
         return response()->json([
         'status' => true,
@@ -27,6 +27,18 @@ class ProdutoController extends Controller
         return response()->json([
         'status' => true,
         'produto' => $produto,
+        ], 200);
+    }
+
+    public function topMenorEstoque() : JsonResponse
+    {
+        $produtos = Produto::orderBy('qt_estoque', 'ASC')
+                        ->take(5)
+                        ->get();
+
+        return response()->json([
+            'status' => true,
+            'produtos' => $produtos,
         ], 200);
     }
     
